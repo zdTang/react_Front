@@ -1,13 +1,13 @@
 
   import snoowrap from'snoowrap';
-  
+  import token from './config/redditToken'
 
     const r = new snoowrap({
-      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36',
-      clientId: 'h8PCl1ykdWxcAA',
-      clientSecret: 'TCmMJItd9icxcePzJ-CgRe-1TXPCUw',
-      username: 'mike-tang',
-      password: 'Tl6902856@@$$'
+      userAgent: token.userAgent,
+      clientId: token.clientId,
+      clientSecret: token.clientSecret,
+      username: token.username,
+      password: token.password
     });
   
     //r.getHot().map(post => post.title).then(console.log);
