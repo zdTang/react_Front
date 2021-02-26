@@ -17,6 +17,25 @@ export default class Card extends Component {
     return myString.substring(0, shortened);
   }
 
+  saveToFavourite(){
+     //console.log(this.props.post.title);
+     //console.log(this.props.post.url);
+     localStorage.setItem(this.props.post.title, this.props.post.url);
+   //  let cat = localStorage.getItem(this.props.post.title);
+   //  console.log(cat);
+    // console.log(localStorage);
+    // console.log(localStorage.length);
+ console.log(`################################`)
+
+ for (var i=0, len =  localStorage.length; i  <  len; i++){   
+    var key =  localStorage.key(i);     
+    var value =  localStorage.getItem(key);   
+    console.log(i+'====='+  key + "===========" + value);
+   }
+  
+
+
+  }
 
    imageURL(){
        //<p className="card-text">{this.props.post.selftext}</p>
@@ -33,6 +52,12 @@ export default class Card extends Component {
                 <h5 className="card-title">{this.props.post.title}</h5>
                 <p className="card-text">{this.truncateString(this.props.post.selftext,WebPageOptions.truncateStringNumber)}</p>
                 <a href={this.props.post.url} target = '_blank' className="btn btn-primary">Read More</a>
+                <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" onClick={this.saveToFavourite.bind(this)}/>
+                <label className="form-check-label" htmlFor="flexCheckIndeterminate">
+                  Add Favrate
+                </label>
+              </div>
             </div>
             </div>
         )
