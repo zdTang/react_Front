@@ -23,6 +23,9 @@ export default class Search extends Component {
         setTimeout(()=>document.querySelector('.alert').remove(),WebPageOptions.timeout);
 
     }
+
+
+
    async SearchReddit(){
     const searchInput=document.getElementById('search-input');   
 
@@ -65,7 +68,6 @@ export default class Search extends Component {
             <div id="search-container" className="container">
             <div id="search" className="card card-body bg-light mb-2">
             <h4>Search SubReddit</h4>
-            <h1>in Search=={this.state.result}</h1>
             <input type="text" id="search-input" className="form-control mb-3" placeholder="Search Term..."/>    
             <button type="submit" className="btn btn-dark btn-block mt-4" onClick={this.SearchReddit.bind(this,"tang")}>Search</button>
 
@@ -76,9 +78,6 @@ export default class Search extends Component {
                     return <Card key={index} post={element} />
                  })
             }
-   
-
-            <h1>{this.state.count}</h1>   
             <div id='results'></div>
             </div>  
             
