@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import {GetSubRedditByHot} from '../RedditApi'
 import {WebPageOptions} from '../conf'
 import Card from './Card'
+let myResult=[];
 export default class Search extends Component {
     constructor(props){
         super(props);
         this.state={
-            result:[1,2,3],
-            count: 0
+            count: 0,
+            post:''
+
         }
     }
     
@@ -34,14 +36,21 @@ export default class Search extends Component {
     else
     {
         searchResult=await GetSubRedditByHot(searchTerm);
+        myResult=searchResult;
+        console.log(searchResult);
 
         this.setState({
-            //result:this.state.result.push(0)
-        }
+           //result:[1,2,3,4,5,6,7]
+           //result:this.state.result.concat(searchResult[0])
+           //post:this.state.result.concat(searchResult[0])
+          post:searchResult
 
+        }
         )
         //console.log(Array.isArray(searchResult) )
-        console.log(this.state.result);
+         console.log(this.state.post);
+
+
         searchInput.value='';
     }
 
@@ -62,9 +71,10 @@ export default class Search extends Component {
 
             </div>  
             { 
-                this.state.result.map((element,index)=> {
+                
+                 (this.state.post||[]).map((element,index)=> {
                     return <Card key={index} post={element} />
-                })
+                 })
             }
    
 
