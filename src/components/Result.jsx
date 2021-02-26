@@ -10,7 +10,7 @@ export default class Result extends Component {
        }
    }
    
-   
+
     render() {
         return (
 
