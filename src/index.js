@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import Cmp1 from './Cmp1';
 //import Result from './components/Result';
-import Search from './components/Search';
-import Title from './components/Title';
+import App from './components/App'
 import './index.css';
 
 //import App from './App';
@@ -11,8 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-  <Title/>
-  <Search/>
+  <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
