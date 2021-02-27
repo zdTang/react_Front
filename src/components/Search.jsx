@@ -7,12 +7,20 @@ export default class Search extends Component {
     constructor(props){
         super(props);
         this.state={
-            count: 0,
-            post:''
+
+           post:sessionStorage.getItem("post")&&JSON.parse(sessionStorage.getItem("post"))
 
         }
+        //check localstorage
     }
     
+    componentWillUnmount(){
+        console.log(`will unmount==${this.state.post}`)
+        sessionStorage.setItem("post", JSON.stringify(this.state.post));
+        console.log("Search=======will Unmount");
+      }
+   com
+
     showMessage(message,className){
         const div=document.createElement('div');
         div.className=`alert ${className}`;
@@ -64,6 +72,8 @@ export default class Search extends Component {
 
 
     render() {
+
+        console.log(`haha${sessionStorage.getItem("post")}`);
         return (
             <div id="search-container" className="container">
             <div id="search" className="card card-body bg-light mb-2">

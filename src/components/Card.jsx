@@ -11,6 +11,12 @@ export default class Card extends Component {
        }
    }
    
+   componentWillUnmount(){
+     console.log("=======will Unmount");
+   }
+
+
+
    truncateString(myString, limit) {
     const shortened = myString.indexOf(' ', limit);
     if (shortened == -1) return myString;
