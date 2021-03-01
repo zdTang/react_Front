@@ -61,7 +61,7 @@ export default class Card extends Component {
                 <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" onClick={this.saveToFavourite.bind(this)}/>
                 <label className="form-check-label" htmlFor="flexCheckIndeterminate">
-                  Add Favrate
+                  Add Favourite
                 </label>
               </div>
             </div>
