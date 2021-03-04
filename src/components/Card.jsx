@@ -69,7 +69,7 @@ return: n/a
             <div className="card" >
             <img className="card-img-top" src={this.props.post.preview?this.props.post.preview.images[0].source.url:this.props.post.preview?this.props.post.preview.images[0].source.url:'https://variety.com/wp-content/uploads/2020/06/reddit-logo-1.png'} alt="Card image cap"/>
             <div className="card-body">
-                <h5 className="card-title">{this.props.post.title}</h5>
+                <h5 className="card-title">{this.props.post.title}<span className="badge bg-warning text-dark">{this.props.post.score}</span></h5>
                 <p className="card-text">{this.truncateString(this.props.post.selftext,WebPageOptions.truncateStringNumber)}</p>
                 <a href={this.props.post.url} target = '_blank' className="btn btn-primary">Read More</a>
                 <div className="form-check">

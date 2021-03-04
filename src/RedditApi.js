@@ -1,5 +1,11 @@
 
-  import snoowrap from'snoowrap';
+ /*=======================
+FileName: ReditAPI.jsx
+Description: This file contains methods for calling Reddit API
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
+ import snoowrap from'snoowrap';
   import {token,ApiOption} from './config/redditToken'
 
     const r = new snoowrap({
@@ -10,12 +16,6 @@
       password: token.password
     });
   
-    //r.getHot().map(post => post.title).then(console.log);
-   // Automating moderation tasks
-  //  async function getSub(){
-  //     let result = await r.getSubreddit('some_subreddit_name').getModqueue({limit: 100});
-  //     return result; 
-  // }
   
   async function getData(searchString) {
     let MyResult=undefined;
@@ -32,7 +32,8 @@
 
   async function GetSubRedditByHot(searchString) {
     let MyResult=undefined;
-    await r.getSubreddit(searchString).getHot({limit:ApiOption.HotPostNumber}).then(result=>{MyResult=result});;
+    //await r.getSubreddit(searchString).getHot({limit:ApiOption.HotPostNumber}).then(result=>{MyResult=result});
+    await r.getSubreddit(searchString).getHot({limit:ApiOption.HotPostNumber}).then(result=>{MyResult=result});
     return MyResult;
   }
   
