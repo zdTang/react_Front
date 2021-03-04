@@ -1,3 +1,10 @@
+/*=======================
+FileName: index.jsx
+Description: The entry point of application
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import Cmp1 from './Cmp1';
@@ -5,7 +12,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App'
 import './index.css';
 
-//import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

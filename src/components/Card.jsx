@@ -1,3 +1,9 @@
+/*=======================
+FileName: Card.jsx
+Description: The component for single Riddit post
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
 import React, { Component } from 'react'
 import {WebPageOptions} from '../conf'
 
@@ -15,7 +21,14 @@ export default class Card extends Component {
      console.log("=======will Unmount");
    }
 
-
+/*=======================
+Method:truncateString
+Description: to delete some words if it is too long
+parameters: 
+  myString: the target string
+  limit: the length we will leave
+return: new string
+========================*/   
 
    truncateString(myString, limit) {
     const shortened = myString.indexOf(' ', limit);
@@ -23,15 +36,16 @@ export default class Card extends Component {
     return myString.substring(0, shortened);
   }
 
+
+/*=======================
+Method:saveToFavourite
+Description: to save the current post into favourite
+parameters: n/a
+return: n/a
+========================*/   
+
   saveToFavourite(){
-     //console.log(this.props.post.title);
-     //console.log(this.props.post.url);
      localStorage.setItem(this.props.post.title, this.props.post.url);
-   //  let cat = localStorage.getItem(this.props.post.title);
-   //  console.log(cat);
-    // console.log(localStorage);
-    // console.log(localStorage.length);
- console.log(`################################`)
 
  for (var i=0, len =  localStorage.length; i  <  len; i++){   
     var key =  localStorage.key(i);     

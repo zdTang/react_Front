@@ -1,3 +1,9 @@
+/*=======================
+FileName: saveCard.jsx
+Description: The component for displaying single favourite posts
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
 import React, { Component } from 'react'
 import {WebPageOptions} from '../conf'
 
@@ -12,11 +18,14 @@ export default class SaveCard extends Component {
    }
    
 
+/*=======================
+Method:DeleteFavourite
+Description: to remove a favourite post from a list
+parameters: n/a
+return: n/a
+========================*/   
  DeleteFavourite(){
-
-
     localStorage.removeItem(this.props.post.title);
-    //console.log(`################################`)
     this.props.func();
 
   }

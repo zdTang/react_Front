@@ -1,3 +1,10 @@
+/*=======================
+FileName: App.jsx
+Description: The main component of the application
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
+
 import React, { Component } from 'react'
 import { HashRouter, Route, Link } from 'react-router-dom'
 import Search from './Search'

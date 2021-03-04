@@ -1,3 +1,9 @@
+/*=======================
+FileName: Favourite.jsx
+Description: The component for displaying all favourite posts
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
 import React, { Component } from 'react'
 import {WebPageOptions} from '../conf'
 import SaveCard from './SaveCard'
@@ -16,6 +22,13 @@ export default class Favourite extends Component {
         this.loadLocalStorage();
     }
 
+/*=======================
+Method:loadLocalStorage
+Description: load post list from localStorage
+parameters: n/a
+return: the List of saved reddit posts
+========================*/   
+
     loadLocalStorage=()=>{
         let postList=[];
         for (var i=0, len =  localStorage.length; i  <  len; i++){   
@@ -32,9 +45,6 @@ export default class Favourite extends Component {
          })
     }
 
-    DeleteReddit(){
-        console.log("haha")
-    }
     render() {
         return (
             <div id="search-container" className="container">

@@ -1,3 +1,9 @@
+/*=======================
+FileName: Search.jsx
+Description: The component for displaying the posts
+Programmer: Zhendong Tang
+First Version: March -1, 2021
+========================*/ 
 import React, { Component } from 'react'
 import {GetSubRedditByHot} from '../RedditApi'
 import {WebPageOptions} from '../conf'
@@ -19,7 +25,13 @@ export default class Search extends Component {
         sessionStorage.setItem("post", JSON.stringify(this.state.post));
         console.log("Search=======will Unmount");
       }
-   com
+/*=======================
+Method: showMessage
+Description: display alert message once user forget input a term for searching
+parameters: n/a
+return: n/a
+========================*/ 
+
 
     showMessage(message,className){
         const div=document.createElement('div');
@@ -33,6 +45,12 @@ export default class Search extends Component {
     }
 
 
+/*=======================
+Method: SearchReddit
+Description: search reddit based on Input
+parameters: n/a
+return: the result of searching
+========================*/ 
 
    async SearchReddit(){
     const searchInput=document.getElementById('search-input');   
@@ -51,9 +69,7 @@ export default class Search extends Component {
         console.log(searchResult);
 
         this.setState({
-           //result:[1,2,3,4,5,6,7]
-           //result:this.state.result.concat(searchResult[0])
-           //post:this.state.result.concat(searchResult[0])
+
           post:searchResult
 
         }
