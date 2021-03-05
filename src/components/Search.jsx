@@ -5,7 +5,6 @@ Programmer: Zhendong Tang
 First Version: March -1, 2021
 ========================*/ 
 import React, { Component } from 'react'
-import {GetSubRedditByHot} from '../RedditApi'
 import {WebPageOptions} from '../conf'
 import Card from './Card'
 let myResult=[];
@@ -21,9 +20,7 @@ export default class Search extends Component {
     }
     
     componentWillUnmount(){
-        console.log(`will unmount==${this.state.post}`)
         sessionStorage.setItem("post", JSON.stringify(this.state.post));
-        console.log("Search=======will Unmount");
       }
 /*=======================
 Method: showMessage
@@ -52,7 +49,7 @@ parameters: n/a
 return: the result of searching
 ========================*/ 
 
-   async SearchReddit(){
+   SearchReddit(){
     const searchInput=document.getElementById('search-input');   
 
     // Get search term
@@ -64,20 +61,7 @@ return: the result of searching
     }
     else
     {
-        searchResult=await GetSubRedditByHot(searchTerm);
-        myResult=searchResult;
-        console.log(searchResult);
-
-        this.setState({
-
-          post:searchResult
-
-        }
-        )
-        //console.log(Array.isArray(searchResult) )
-         console.log(this.state.post);
-
-
+      this.GetSubRedditByHot(searchTerm);
         searchInput.value='';
     }
 
@@ -86,10 +70,37 @@ return: the result of searching
 }
 
 
+  GetSubRedditByHot(searchString) {
+    //let MyResult=undefined;
+    //await r.getSubreddit(searchString).getHot({limit:ApiOption.HotPostNumber}).then(result=>{MyResult=result});
+    //await r.getSubreddit(searchString).getHot({limit:ApiOption.HotPostNumber}).then(result=>{MyResult=result});
+    //return MyResult;
+    //then(res=>res.json())
+    fetch(`https://www.reddit.com/r/${searchString}/hot.json?limit=10`).then(res=>res.json()).then(
+          (result)=>{
+           // console.log(result.data.children);
+            if(result.data.children){
+              //console.log(result);
+              myResult=result.data.children;
+             // console.log(myResult);
+              
+                this.setState({
+
+                 post:myResult
+  
+                })
+            }
+            else{
+              console.log('no result')
+            }
+          }
+    )
+
+  }
+  
+
 
     render() {
-
-        console.log(`haha${sessionStorage.getItem("post")}`);
         return (
             <div id="search-container" className="container">
             <div id="search" className="card card-body bg-light mb-2">

@@ -35,7 +35,7 @@ return: the List of saved reddit posts
             var key =  localStorage.key(i);     
             var value =  localStorage.getItem(key);  
             postList.push({title:key,url:value}); 
-            //console.log(i+'====='+  key + "===========" + value);
+
            }
 
            this.setState({
